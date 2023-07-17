@@ -1,19 +1,20 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: helloworld
-  namespace: flux-system
+  name: example-helmrelease # kpt-set: ${chartName}
+  namespace: example-ns
 spec:
   interval: 1m
   chart:
     spec:
-      chart: ./charts/hello-world
+      chart: ./charts/example-helmrelease # kpt-set: ./charts/${chartName}
       version: '0.1.x'
       sourceRef:
         kind: GitRepository
-        name: hello-test
-        namespace: flux-system
-      interval: 1m
+        name: example-gitrepo # kpt-set: ${gitrepoName}
+        namespace: example-ns # kpt-set: ${namespace}
       reconcileStrategy: Revision
+      interval: 1m
   values:
-    fullnameOverride: super-hello
+    fullnameOverride: super-duper
+    # replicaCount: 1 # kpt-set: ${replicas}

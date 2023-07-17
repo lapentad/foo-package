@@ -1,11 +1,15 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: hello-test
-  namespace: flux-system
+  name: example-gitrepo # kpt-set: ${gitrepoName}
+  namespace: example-ns
 spec:
-  interval: 1m0s
+  interval: 1m
   url: https://github.com/efiacor/test
   ref:
     branch: main
-  ignore: "# exclude all\n/*\n# include charts directory\n!/charts/ \n"
+  ignore: |
+    # exclude all
+    /*
+    # include charts dir
+    !/charts
