@@ -6,3 +6,9 @@ metadata:
     config.kubernetes.io/local-config: "true"
 info:
   description: kpt package for provisioning flux gitrepo and helmrelease
+pipeline:
+  mutators:
+    - image: gcr.io/kpt-fn/set-namespace:v0.4.1
+      configPath: package-context.yaml
+    - image: gcr.io/kpt-fn/apply-setters:v0.2.0
+      configPath: package-context.yaml
