@@ -1,13 +1,13 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: example-gitrepo # kpt-set: ${gitrepoName}
-  namespace: example-ns
+  name: hello-gitrepo # kpt-set: ${gitrepoName}
+  namespace: hello
 spec:
   interval: 1m
-  url: https://github.com/efiacor/test
+  url: https://github.com/Nordix/nordix-nephio-helm
   ref:
-    branch: main
+    branch: master
   ignore: |
     # exclude all
     /*

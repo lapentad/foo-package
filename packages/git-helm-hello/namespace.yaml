@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: example-ns # kpt-set: ${namespace}
+  name: hello # kpt-set: ${namespace}
