@@ -5,7 +5,4 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 data:
-  gitrepoName: test-gitrepo
-  chartName: hello-world
-  namespace: hello
-  replicas: "4"
+  name: example
