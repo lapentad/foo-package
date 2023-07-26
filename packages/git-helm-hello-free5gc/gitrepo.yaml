@@ -1,0 +1,15 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: hello-free5gc
+  namespace: hello
+spec:
+  interval: 1m
+  url: https://github.com/Orange-OpenSource/towards5gs-helm
+  ref:
+    branch: master
+  ignore: |
+    # exclude all
+    /*
+    # include charts dir
+    !/charts
