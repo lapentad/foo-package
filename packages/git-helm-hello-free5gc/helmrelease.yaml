@@ -10,6 +10,6 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
-        name: hello-gitrepo
+        name: git-repository-git-helm-towards5gs
   interval: 10s
   targetNamespace: test-5gs
