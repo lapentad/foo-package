@@ -1,15 +1,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: hello-gitrepo
-  namespace: hello
+  name: git-repository-git-helm-towards5gs
+  namespace: flux-system
 spec:
-  interval: 1m
-  url: https://github.com/Nordix/nordix-nephio-helm
+  interval: 10s
   ref:
-    branch: master
-  ignore: |
-    # exclude all
-    /*
-    # include charts dir
-    !/charts
+    branch: main
+  url: https://github.com/Orange-OpenSource/towards5gs-helm

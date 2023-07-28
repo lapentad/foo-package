@@ -1,19 +1,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: hello-free5gc
-  namespace: hello
+  name: helm-release-git-helm-towards5gs
+  namespace: flux-system
 spec:
-  interval: 1m
   chart:
     spec:
-      chart: ./charts/hello-free5gc/free5gc-1.1.5.tgz
-      version: '1.x.x'
+      chart: repo/free5gc-1.1.3.tgz
+      reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
-        name: hello-gitrepo 
-        namespace: hello
-      reconcileStrategy: Revision
-      interval: 1m
-  values:
-    fullnameOverride: super-duper
+        name: hello-gitrepo
+  interval: 10s
+  targetNamespace: test-5gs
