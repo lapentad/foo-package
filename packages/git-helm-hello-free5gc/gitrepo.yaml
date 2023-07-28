@@ -1,11 +1,11 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: hello-free5gc
+  name: hello-gitrepo
   namespace: hello
 spec:
   interval: 1m
-  url: https://github.com/Orange-OpenSource/towards5gs-helm
+  url: https://github.com/Nordix/nordix-nephio-helm
   ref:
     branch: master
   ignore: |

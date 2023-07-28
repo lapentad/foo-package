@@ -7,11 +7,11 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: ./repo/free5gc-1.1.5.tgz
-      version: '1.1.x'
+      chart: ./charts/hello-free5gc/free5gc-1.1.5.tgz
+      version: '1.x.x'
       sourceRef:
         kind: GitRepository
-        name: hello-free5gc 
+        name: hello-gitrepo 
         namespace: hello
       reconcileStrategy: Revision
       interval: 1m
