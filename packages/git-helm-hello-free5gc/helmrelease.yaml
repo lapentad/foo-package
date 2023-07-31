@@ -6,10 +6,9 @@ metadata:
 spec:
   chart:
     spec:
-      chart: charts/free5gc
+      chart: .
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
         name: git-repository-git-helm-towards5gs
   interval: 10s
-  targetNamespace: test-5gs

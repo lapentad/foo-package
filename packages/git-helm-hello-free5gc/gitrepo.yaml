@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 10s
   ref:
-    branch: main
-  url: https://github.com/efiacor/free5gc
+    branch: gh-pages
+  url: https://github.com/lapentad/helrepo-free5gc
