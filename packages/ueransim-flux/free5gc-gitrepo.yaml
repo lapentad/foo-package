@@ -1,13 +1,13 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: hello-gitrepo # kpt-set: ${gitrepoName}
-  namespace: hello
+  name: free5gc-gitrepo
+  namespace: flux-system
 spec:
-  interval: 1m
-  url: https://github.com/Nordix/nordix-nephio-helm
+  interval: 10s
+  url: https://github.com/Orange-OpenSource/towards5gs-helm
   ref:
-    branch: master
+    branch: main
   ignore: |
     # exclude all
     /*
