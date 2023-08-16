@@ -5,4 +5,4 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: kpt package for deploying free5gc ueransim helm charts via flux
+  description: kpt package for deploying online boutique helm charts via flux

@@ -1,7 +1,7 @@
 # onlineboutique-flux
 
 ## Description
-kpt package for deploying free5gc ueransim helm via flux
+kpt package for deploying online boutique helm via flux
 
 ## Usage
 
