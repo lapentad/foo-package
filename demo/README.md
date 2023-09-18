@@ -39,7 +39,7 @@ leaving all options as `default`, then click `Create Deployment`.
 At this point, we can take a closer look at the contents of the kpt package which 
 contains the relevant kubernetes resources to deploy the controllers.
 
-Note: We are deploying into the `flux-system` namespace by default.
+**_NOTE:_**  We are deploying into the `flux-system` namespace by default.
 
 Finally, we need to `propose` and then `approve` the pkg to initialize the deployment.
 
