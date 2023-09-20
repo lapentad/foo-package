@@ -9,7 +9,7 @@ Then, we can utilize the flux Custom Resources defined in another test kpt packa
 ##  Pre requisites:
 * [Nephio R1 sandbox](https://github.com/nephio-project/docs/blob/main/install-guide/README.md): Set up the Nephio sandbox environment.
 * [Access to the Nephio Web UI](https://github.com/nephio-project/docs/blob/main/install-guide/README.md#access-to-the-user-interfaces)
-* [Nephio R1 sandbox workload clusters](https://github.com/nephio-project/docs/blob/main/user-guide/exercises.md#quick-start-exercises): Create/Deploy the predefined set of workload clusters by completing the quick start exercises up to and including [set 3](https://github.com/nephio-project/docs/blob/main/user-guide/exercises.md#step-3-deploy-two-edge-clusters).
+* [Nephio R1 sandbox workload clusters](https://github.com/nephio-project/docs/blob/main/user-guide/exercises.md#quick-start-exercises): Create/Deploy the predefined set of workload clusters by completing the quick start exercises up to and including [Step 3](https://github.com/nephio-project/docs/blob/main/user-guide/exercises.md#step-3-deploy-two-edge-clusters).
 
 ### Deploying the flux-helm-controllers pkg
 
@@ -17,22 +17,22 @@ Access the Nephio Web UI and execute the following:
 
 We will deploy the `flux-helm-controllers` pkg from the `nephio-example-packages` 
 repo to the `edge02` workload cluster.
-* Step 1
+* **Step 1**
 
 ![Install flux controllers - Step 1](img/nephio-ui-edge02-deployment.png)
 
-* Step 2
+* **Step 2**
 
 ![Install flux controllers - Step 2](img/add-deployment-selection.png)
 
-* Step 3
+* **Step 3**
 
 ![Install flux controllers - Step 3](img/flux-controller-selection.png)
 
 Click through the `Next` button until you are through all the steps, 
 leaving all options as `default`, then click `Create Deployment`.
 
-* Step 4
+* **Step 4**
 
 ![Install flux controllers - Step 4](img/select-create-deployment.png)
 
@@ -43,11 +43,11 @@ contains the relevant kubernetes resources to deploy the controllers.
 
 Finally, we need to `propose` and then `approve` the pkg to initialize the deployment.
 
-* Step 5
+* **Step 5**
 
 ![Install flux controllers - Step 5](img/propose-selection.png)
 
-* Step 6
+* **Step 6**
 
 ![Install flux controllers - Step 6](img/approve-selection.png)
 
@@ -67,7 +67,7 @@ source-controller-5756bf7d48-hprkn   1/1     Running   0          6m20s
 </details>
 
 
-### Deploying the policy-acm-flux pkg
+### Deploying the onlineboutique-flux pkg
 
 To make the demo kpt packages available in Nephio, we need to register a new 
 `External Blueprints`repository. 
@@ -98,34 +98,42 @@ The new repository should now have been added to the `External Blueprints` secti
 
 ![External Blueprints UI](img/external-bp-repos.png)
 
-From here, we can see the policy-acm-flux pkg to be deployed.
+From here, we can see the onlineboutique-flux pkg to be deployed.
 
-![Policy acm pkg](img/nephio-packages-show.png)
+![Policy acm pkg](img/nephio-pkgs-onlineboutique-show.png)
 
 
-To deploy the pkg, repeat/follow Steps 1 - 6 from above, 
-replacing step 3 with the following. 
+To deploy the pkg, repeat/follow **Steps 1 - 6** from above, 
+replacing **Step 3** with the following. 
 Take note of the source repo and the package to be deployed.
 
-**_NOTE:_**  The overrides values.yaml ConfigMap in the package is pre-configured 
-to deploy a limited subset of the chart for demo purposes.
+![Add acm pkg](img/add-deploy-onlinebout-select.png)
 
-![Add acm pkg](img/add-acm-deploy-pkg.png)
+**_NOTE:_**  The overrides online-boutique-values ConfigMap in the package refers to
+the default values.yaml for the chart and can be customized prior to pkg approval.
 
-Shortly thereafter, you should see the  defined policy acm components in the acm namespace:
+Shortly thereafter, you should see the online boutique components deployed 
+in the online-boutique namespace:
 
 ```bash
-kubectl get po --context edge02-admin@edge02 -n acm
+kubectl get po --context edge02-admin@edge02 -n online-boutique
 ```
 <details>
 <summary>The output is similar to:</summary>
 
 ```console
-NAME                                        READY   STATUS      RESTARTS   AGE
-mariadb-galera-0                            1/1     Running     0          12m
-policy-clamp-runtime-acm-66dc9bd8bb-f99rp   1/1     Running     0          12m
-policy-galera-config-tcs5c                  0/1     Completed   0          12m
-policy-galera-init-q8d8v                    0/1     Completed   0          12m
-policy-models-simulator-7d6d7dcdff-fvrss    1/1     Running     0          12m
+NAME                                     READY   STATUS    RESTARTS   AGE
+adservice-5464cc8db4-p9sm2               1/1     Running   0          37s
+cartservice-6458db7c7c-4scnh             1/1     Running   0          37s
+checkoutservice-55b497bfb8-4x8jj         1/1     Running   0          37s
+currencyservice-6f868d85d8-fgq6t         1/1     Running   0          37s
+emailservice-5cf5fc5898-wzmz8            1/1     Running   0          37s
+frontend-56bd99cb9b-thps4                1/1     Running   0          37s
+loadgenerator-796b7d99dd-894gx           1/1     Running   0          37s
+paymentservice-5ff68d9c7d-74q7c          1/1     Running   0          37s
+productcatalogservice-6d9568bddb-8z66q   1/1     Running   0          37s
+recommendationservice-c58857d6-qwrkd     1/1     Running   0          37s
+redis-cart-7495b4ff99-gbq4m              1/1     Running   0          37s
+shippingservice-6f65f85b8b-j5c28         1/1     Running   0          37s
 ```
 </details>
