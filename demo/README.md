@@ -6,7 +6,7 @@ In this example, we deploy the flux [helm](https://fluxcd.io/flux/components/hel
 
 Then, we can utilize the flux Custom Resources defined in another test kpt package to deploy an example helm chart.
 
-##  Pre requisites:
+##  Prerequisites:
 * [Nephio R1 sandbox](https://github.com/nephio-project/docs/blob/main/install-guide/README.md): Set up the Nephio sandbox environment.
 * [Access to the Nephio Web UI](https://github.com/nephio-project/docs/blob/main/install-guide/README.md#access-to-the-user-interfaces)
 * [Nephio R1 sandbox workload clusters](https://github.com/nephio-project/docs/blob/main/user-guide/exercises.md#quick-start-exercises): Create/Deploy the predefined set of workload clusters by completing the quick start exercises up to and including [Step 3](https://github.com/nephio-project/docs/blob/main/user-guide/exercises.md#step-3-deploy-two-edge-clusters).
@@ -100,8 +100,12 @@ The new repository should now have been added to the `External Blueprints` secti
 
 From here, we can see the onlineboutique-flux pkg to be deployed.
 
-![Policy acm pkg](img/nephio-pkgs-onlineboutique-show.png)
+![online boutique pkg](img/nephio-pkgs-onlineboutique-show.png)
 
+The HelmRepository Custom Resource within the kpt pkg refers to the official 
+[online boutique helm charts repo.](https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/helm-chart)
+
+![HelmRepo online boutique ref](img/helmrepo-onlineboutique-ref.png)
 
 To deploy the pkg, repeat/follow **Steps 1 - 6** from above, 
 replacing **Step 3** with the following. 
