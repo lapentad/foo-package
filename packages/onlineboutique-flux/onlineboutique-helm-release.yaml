@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: online-boutique
-        namespace: flux-system
+        namespace: online-boutique
       reconcileStrategy: Revision
       interval: 1m
   targetNamespace: online-boutique
